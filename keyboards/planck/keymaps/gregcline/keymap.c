@@ -156,11 +156,31 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   float plover_gb_song[][2]  = SONG(PLOVER_GOODBYE_SOUND);
 #endif
 
+/* LED layer settings */
+const rgblight_segment_t PROGMEM layer_workman[] = RGBLIGHT_LAYER_SEGMENTS(
+  {0, 9, HSV_MAGENTA}
+);
+
+const rgblight_segment_t PROGMEM layer_qwerty[] = RGBLIGHT_LAYER_SEGMENTS(
+  {0, 9, HSV_TEAL}
+);
+
+const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
+  layer_qwerty,
+  layer_workman
+);
+
+void keyboard_post_init_user(void) {
+  rgblight_layers = my_rgb_layers;
+}
+
 layer_state_t layer_state_set_user(layer_state_t state) {
+  rgblight_set_layer_state(0, layer_state_cmp(state, _QWERTY));
+  rgblight_set_layer_state(1, layer_state_cmp(state, _WORKMAN));
   return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
 }
 
-
+/* Custom keycode handling */
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     case QWERTY:

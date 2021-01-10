@@ -33,7 +33,9 @@ enum planck_keycodes {
   RAISE,
   PLOVER,
   BACKLIT,
-  EXT_PLV
+  EXT_PLV,
+  SHRUG,   // ¯\_(ツ)_/¯
+  TFLIP    // (╯°□°)╯︵ ┻━┻
 };
 
 
@@ -65,7 +67,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * | Shift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |Enter |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Brite| Ctrl | Alt  | GUI  |Lower |    Space    |Raise | Left | Down |  Up  |Right |
+ * | Brite| Ctrl | Alt  | GUI  |Lower |    Space    |Raise |   [  |   ]  |   \  |  =   |
  * `-----------------------------------------------------------------------------------'
  */
 [_WORKMAN] = LAYOUT_planck_1x2uC(
@@ -78,9 +80,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Lower
  * ,-----------------------------------------------------------------------------------.
- * |      |      |      |      |      |      |      |   7  |   8  |   9  |   -  |   =  |
+ * |  `   |      |      |      |      |      |      |   7  |   8  |   9  |   -  |   =  |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |      |      |      |      |      |      |   4  |   5  |   6  |      |      |
+ * |      |SHRUG |TFLIP |      |      |      |      |   4  |   5  |   6  |      |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * | SHIFT|      |      |      |      |      |      |   1  |   2  |   3  |      |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
@@ -88,10 +90,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
 [_LOWER] = LAYOUT_planck_1x2uC(
-    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_7, KC_8, KC_9, KC_MINS, KC_EQL,
-    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_4, KC_5, KC_6, KC_NO, KC_NO,
-    KC_LSFT, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_0, KC_1, KC_2, KC_3, KC_NO, KC_NO,
-    KC_TRNS, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_NO, KC_TRNS, KC_MFFD, KC_VOLD, KC_VOLU, KC_MPLY
+    KC_GRAVE, KC_NO, KC_NO, KC_NO, KC_NO,   KC_NO, KC_NO,   KC_7,    KC_8,    KC_9,    KC_MINS, KC_EQL,
+    KC_NO,    SHRUG, TFLIP, KC_NO, KC_NO,   KC_NO, KC_NO,   KC_4,    KC_5,    KC_6,    KC_NO,   KC_NO,
+    KC_LSFT,  KC_NO, KC_NO, KC_NO, KC_NO,   KC_NO, KC_0,    KC_1,    KC_2,    KC_3,    KC_NO,   KC_NO,
+    KC_TRNS,  KC_NO, KC_NO, KC_NO, KC_TRNS, KC_NO, KC_TRNS, KC_MFFD, KC_VOLD, KC_VOLU, KC_MPLY
 ),
 
 /* Raise
@@ -190,18 +192,18 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       return false;
       break;
-    // case COLEMAK:
-    //   if (record->event.pressed) {
-    //     set_single_persistent_default_layer(_COLEMAK);
-    //   }
-    //   return false;
-    //   break;
-    // case DVORAK:
-    //   if (record->event.pressed) {
-    //     set_single_persistent_default_layer(_DVORAK);
-    //   }
-    //   return false;
-    //   break;
+    case TFLIP:
+      if (record->event.pressed) {
+        send_unicode_string("(╯°□°)╯︵ ┻━┻");
+      }
+      return false;
+      break;
+    case SHRUG:
+      if (record->event.pressed) {
+        send_unicode_string("¯\\_(ツ)_/¯");
+      }
+      return false;
+      break;
     case LOWER:
       if (record->event.pressed) {
         layer_on(_LOWER);

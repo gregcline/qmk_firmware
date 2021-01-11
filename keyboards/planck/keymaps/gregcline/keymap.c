@@ -49,40 +49,40 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * | Shift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |Enter |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      | Ctrl | Alt  | GUI  |Lower |    Space    |Raise |   [  |   ]  |   \  |  =   |
+ * |WRKMN| Ctrl | Alt  | GUI  |Lower |    Space    |Raise |   [  |   ]  |   \  |  =   |
  * `-----------------------------------------------------------------------------------'
  */
 [_QWERTY] = LAYOUT_planck_1x2uC(
     KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,  KC_T,   KC_Y,  KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
     KC_ESC,  KC_A,    KC_S,    KC_D,    KC_F,  KC_G,   KC_H,  KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
     KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,  KC_B,   KC_N,  KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_ENT,
-    WORKMAN, KC_LCTL, KC_LALT, KC_LGUI, LOWER, KC_SPC, RAISE, KC_LBRC, KC_RBRC, KC_BSLS, KC_EQL
+    WORKMAN,   KC_LCTL, KC_LALT, KC_LGUI, LOWER, KC_SPC, RAISE, KC_BSLS, KC_NO,   KC_NO,   KC_EQL
 ),
 
 /* Workman
  * ,-----------------------------------------------------------------------------------.
- * | Tab  |   Q  |   W  |   E  |   R  |   T  |   Y  |   U  |   I  |   O  |   P  | Bksp |
+ * | Tab  |   Q  |   D  |   R  |   W  |   B  |   J  |   F  |   U  |   P  |   :  | Bksp |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Esc  |   A  |   S  |   D  |   F  |   G  |   H  |   J  |   K  |   L  |   ;  |  "   |
+ * | Esc  |   A  |   S  |   H  |   T  |   G  |   Y  |   N  |   E  |   O  |   I  |  '   |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Shift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |Enter |
+ * | Shift|   Z  |   X  |   M  |   C  |   V  |   K  |   L  |   ,  |   .  |   /  |Enter |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Brite| Ctrl | Alt  | GUI  |Lower |    Space    |Raise |   [  |   ]  |   \  |  =   |
+ * |      | Ctrl | Alt  | GUI  |Lower |    Space    |Raise |   \  |      |      |  =   |
  * `-----------------------------------------------------------------------------------'
  */
 [_WORKMAN] = LAYOUT_planck_1x2uC(
     KC_TAB,  KC_Q,    KC_D,    KC_R,    KC_W,    KC_B,   KC_J,    KC_F,    KC_U,    KC_P,    KC_SCLN, KC_BSPC,
     KC_ESC,  KC_A,    KC_S,    KC_H,    KC_T,    KC_G,   KC_Y,    KC_N,    KC_E,    KC_O,    KC_I,    KC_QUOT,
     KC_LSFT, KC_Z,    KC_X,    KC_M,    KC_C,    KC_V,   KC_K,    KC_L,    KC_COMM, KC_DOT,  KC_SLSH, KC_ENT,
-    KC_TRNS, KC_LCTL, KC_LALT, KC_LGUI, KC_TRNS, KC_SPC, KC_TRNS, KC_LBRC, KC_RBRC, KC_BSLS, KC_EQL
+    KC_TRNS, KC_LCTL, KC_LALT, KC_LGUI, KC_TRNS, KC_SPC, KC_TRNS, KC_BSLS, KC_NO,   KC_NO,   KC_EQL
 ),
 
 
 /* Lower
  * ,-----------------------------------------------------------------------------------.
- * |  `   |      |      |      |      |      |      |   7  |   8  |   9  |   -  |   =  |
+ * |  `   |   1  |   2  |   3  |   4  |   5  |   6  |   7  |   8  |   9  |   0  |   -  |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |SHRUG |TFLIP |      |      |      |      |   4  |   5  |   6  |      |      |
+ * |      |SHRUG |TFLIP |      |      |      |      |   4  |   5  |   6  |   [  |  ]   |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * | SHIFT|      |      |      |      |      |      |   1  |   2  |   3  |      |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
@@ -90,8 +90,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
 [_LOWER] = LAYOUT_planck_1x2uC(
-    KC_GRAVE, KC_NO, KC_NO, KC_NO, KC_NO,   KC_NO, KC_NO,   KC_7,    KC_8,    KC_9,    KC_MINS, KC_EQL,
-    KC_NO,    SHRUG, TFLIP, KC_NO, KC_NO,   KC_NO, KC_NO,   KC_4,    KC_5,    KC_6,    KC_NO,   KC_NO,
+    KC_GRAVE, KC_1,  KC_2,  KC_3,  KC_4,    KC_5,  KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS,
+    KC_NO,    SHRUG, TFLIP, KC_NO, KC_NO,   KC_NO, KC_NO,   KC_4,    KC_5,    KC_6,    KC_LBRC, KC_RBRC,
     KC_LSFT,  KC_NO, KC_NO, KC_NO, KC_NO,   KC_NO, KC_0,    KC_1,    KC_2,    KC_3,    KC_NO,   KC_NO,
     KC_TRNS,  KC_NO, KC_NO, KC_NO, KC_TRNS, KC_NO, KC_TRNS, KC_MFFD, KC_VOLD, KC_VOLU, KC_MPLY
 ),
@@ -100,18 +100,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------------------------------------------------.
  * |  F1  |  F2  |  F3  |  F4  |  F5  |  F6  |  F7  |  F8  |  F9  |  F10  | F11  | F12 |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |      |      |      |      |      | LEFT | DOWN |  UP  |RIGHT |      |      |
+ * |      |      |      |      |      |      | LEFT | DOWN |  UP  |RIGHT |      |DELETE|
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |      |      |      |      |      |      |      |      |      |      |      |
+ * |      |      |      |      |      |      |      | HOME |  END | PGUP | PGDWN|      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |      |      |      |      |      |             |      |      |      |      |      |
  * `-----------------------------------------------------------------------------------'
  */
 [_RAISE] = LAYOUT_planck_1x2uC(
-    KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, KC_F12,
-    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, KC_NO, KC_NO,
-    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-    KC_TRNS, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_NO, KC_TRNS, KC_NO, KC_NO, KC_NO, KC_NO
+    KC_F1,   KC_F2, KC_F3, KC_F4, KC_F5,   KC_F6, KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11,  KC_F12,
+    KC_NO,   KC_NO, KC_NO, KC_NO, KC_NO,   KC_NO, KC_LEFT, KC_DOWN, KC_UP,  KC_RGHT, KC_NO,   KC_DEL,
+    KC_NO,   KC_NO, KC_NO, KC_NO, KC_NO,   KC_NO, KC_NO,   KC_HOME, KC_END, KC_PGUP, KC_PGDN, KC_NO,
+    KC_TRNS, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_NO, KC_TRNS, KC_NO,   KC_NO,  KC_NO,   KC_NO
 ),
 
 /* Plover layer (http://opensteno.org)
@@ -137,7 +137,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------------------------------------------------.
  * |      | Reset|Debug | RGB  |RGBMOD| HUE+ | HUE- | SAT+ | SAT- |BRGTH+|BRGTH-|  Del |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |      |MUSmod|Aud on|Audoff|AGnorm|AGswap|Qwerty|Colemk|Dvorak|Plover|      |
+ * |      |      |MUSmod|Aud on|Audoff|AGnorm|AGswap|Qwerty|Workmn|      |Plover|      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |      |Voice-|Voice+|Mus on|Musoff|MIDIon|MIDIof|TermOn|TermOf|      |      |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
@@ -146,7 +146,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_ADJUST] = LAYOUT_planck_grid(
     _______, RESET,   DEBUG,   RGB_TOG, RGB_MOD, RGB_HUI, RGB_HUD, RGB_SAI, RGB_SAD,  RGB_VAI, RGB_VAD, KC_DEL ,
-    _______, _______, MU_MOD,  AU_ON,   AU_OFF,  AG_NORM, AG_SWAP, QWERTY,  _______,  _______,  PLOVER,  _______,
+    _______, _______, MU_MOD,  AU_ON,   AU_OFF,  AG_NORM, AG_SWAP, QWERTY,  WORKMAN,  _______,  PLOVER,  _______,
     _______, MUV_DE,  MUV_IN,  MU_ON,   MU_OFF,  MI_ON,   MI_OFF,  TERM_ON, TERM_OFF, _______, _______, _______,
     _______, _______, _______, _______, _______, _______, _______, _______, _______,  _______, _______, _______
 )
@@ -160,11 +160,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* LED layer settings */
 const rgblight_segment_t PROGMEM layer_workman[] = RGBLIGHT_LAYER_SEGMENTS(
-  {0, 9, HSV_MAGENTA}
+  {0, 9, HSV_ORANGE}
 );
 
 const rgblight_segment_t PROGMEM layer_qwerty[] = RGBLIGHT_LAYER_SEGMENTS(
-  {0, 9, HSV_TEAL}
+  {0, 9, HSV_TURQUOISE}
 );
 
 const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
